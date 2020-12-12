@@ -673,10 +673,11 @@ async def pin(msg):
     """ For .pinme command, pins the replied/tagged message on the top the chat. """
     # Admin or creator check
     chat = await msg.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
 
     if not msg.is_private:
+        admin = chat.admin_rights
+        creator = chat.creator
+
         # If not admin and not creator, return
         if not admin and not creator:
             await msg.edit(NO_ADMIN)
