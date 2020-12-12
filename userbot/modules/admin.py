@@ -708,11 +708,17 @@ async def pin(msg):
     user = await get_user_from_id(msg.from_id, msg)
 
     if BOTLOG:
-        await msg.client.send_message(
-            BOTLOG_CHATID, "#PIN\n"
-            f"ADMIN: [{user.first_name}](tg://user?id={user.id})\n"
-            f"CHAT: {msg.chat.title}(`{msg.chat_id}`)\n"
-            f"LOUD: {not is_silent}")
+        if not msg.is_private:
+            await msg.client.send_message(
+                BOTLOG_CHATID, "#PIN\n"
+                f"ADMIN: [{user.first_name}](tg://user?id={user.id})\n"
+                f"CHAT: {msg.chat.title}(`{msg.chat_id}`)\n"
+                f"LOUD: {not is_silent}")
+        else:
+            await msg.client.send_message(
+                BOTLOG_CHATID, "#PIN\n"
+                f"PM with: [{user.first_name}](tg://user?id={user.id})\n"
+                f"LOUD: {not is_silent}")
 
 
 @register(outgoing=True, pattern="^.kick(?: |$)(.*)")
