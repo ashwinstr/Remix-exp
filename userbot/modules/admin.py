@@ -676,7 +676,7 @@ async def pin(msg):
     admin = chat.admin_rights
     creator = chat.creator
 
-    if not event.is_private:
+    if not msg.is_private:
         # If not admin and not creator, return
         if not admin and not creator:
             await msg.edit(NO_ADMIN)
