@@ -28,27 +28,26 @@ async def carbon(msg):
             await msg.err("need input text!")
             return
         await msg.edit("`Creating a Carbon...`")
-        async with userbot.conversation("CarbonNowShBot", timeout=30) as conv:
-            try:
-                await conv.send_message(text)
-            await conv.get_response(mark_read=True)
-            while not msg.reply_markup:
-                await conv.get_response(mark_read=True)
-            await msg.click(x=random.randint(0, 2), y=random.randint(0, 8))
-            await conv.get_response(mark_read=True)
-            while not msg.media:
-                await conv.get_response(mark_read=True)
-            caption = "\n".join(response.caption.split("\n")[0:2])
-            file_id = response.document.file_id
-            await asyncio.gather(
-                msg.delete(),
-                msg.client.send_document(
-                    chat_id=msg.chat.id,
-                    document=file_id,
-                    caption="`" + caption + "`",
-                    reply_to_message_id=replied.message_id if replied else None,
-                ),
-            )
+        try:
+            await msg.send_message(text)
+        await msg.get_response(mark_read=True)
+        while not msg.reply_markup:
+            await msg.get_response(mark_read=True)
+        await msg.click(x=random.randint(0, 2), y=random.randint(0, 8))
+        await msg.get_response(mark_read=True)
+        while not msg.media:
+            await msg.get_response(mark_read=True)
+        caption = "\n".join(response.caption.split("\n")[0:2])
+        file_id = msg.document.file_id
+        await asyncio.gather(
+            msg.delete(),
+            msg.client.send_document(
+                chat_id=msg.chat.id,
+                document=file_id,
+                caption="`" + caption + "`",
+                reply_to_message_id=replied.message_id if replied else None,
+            ),
+        )
     else:
         input_str = msg.filtered_input_str
         theme = "seti"
