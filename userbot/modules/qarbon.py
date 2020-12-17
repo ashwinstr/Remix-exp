@@ -31,13 +31,13 @@ async def carbon(msg):
         async with userbot.conversation("CarbonNowShBot", timeout=30) as conv:
             try:
                 await conv.send_message(text)
-            response = await conv.get_response(mark_read=True)
-            while not response.reply_markup:
-                response = await conv.get_response(mark_read=True)
-            await response.click(x=random.randint(0, 2), y=random.randint(0, 8))
-            response = await conv.get_response(mark_read=True)
-            while not response.media:
-                response = await conv.get_response(mark_read=True)
+            await conv.get_response(mark_read=True)
+            while not msg.reply_markup:
+                await conv.get_response(mark_read=True)
+            await msg.click(x=random.randint(0, 2), y=random.randint(0, 8))
+            await conv.get_response(mark_read=True)
+            while not msg.media:
+                await conv.get_response(mark_read=True)
             caption = "\n".join(response.caption.split("\n")[0:2])
             file_id = response.document.file_id
             await asyncio.gather(
