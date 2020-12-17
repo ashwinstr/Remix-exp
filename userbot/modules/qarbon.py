@@ -19,7 +19,7 @@ from userbot import GOOGLE_CHROME_BIN, DOWN_PATH, bot
 CARBON = "https://carbon.now.sh/?t={theme}&l={lang}&code={code}&bg={bg}"
 
 
-@register(outgoing=True, pattern="^.qarbon")
+@register(outgoing=True, pattern="^.karbon2")
 async def carbon(msg):
     replied = msg.reply_to_message
     if GOOGLE_CHROME_BIN is None:
@@ -153,7 +153,7 @@ async def carbon(msg):
         driver.quit()
 
 CMD_HELP.update(
-    "carbon",
+    "karbon2",
     about={
         "header": "create a carbon",
         "flags": {
