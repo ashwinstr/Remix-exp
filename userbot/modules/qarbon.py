@@ -30,13 +30,7 @@ async def carbon(msg):
         await msg.edit("`Creating a Carbon...`")
         try:
             await msg.send_message(text)
-        await msg.get_response(mark_read=True)
-        while not msg.reply_markup:
-            await msg.get_response(mark_read=True)
         await msg.click(x=random.randint(0, 2), y=random.randint(0, 8))
-        await msg.get_response(mark_read=True)
-        while not msg.media:
-            await msg.get_response(mark_read=True)
         caption = "\n".join(response.caption.split("\n")[0:2])
         file_id = msg.document.file_id
         await asyncio.gather(
