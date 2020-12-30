@@ -1,3 +1,4 @@
+from telethon.tl.types import User
 from userbot import (LOGS, NC_LOG_P_M_S, PM_LOGGR_BOT_API_ID, bot)
 
 from userbot.events import register
