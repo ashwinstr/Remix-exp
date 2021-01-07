@@ -1,4 +1,4 @@
-import goslate
+import Goslate
 import emoji
 from emoji import get_emoji_regexp
 from userbot.events import register
