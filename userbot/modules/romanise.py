@@ -16,8 +16,6 @@ async def _(event):
         previous_message = await event.get_reply_message()
         text = previous_message.message
         lan = "en"
-    elif "|" in input_str:
-        lan, text = input_str.split("|")
     else:
         await event.edit("`.gs LanguageCode` as reply to a message")
         return
@@ -27,7 +25,6 @@ async def _(event):
     
     roman_gs = goslate.Goslate(writing=goslate.WRITING_ROMAN)
     text = emoji.demojize(text.strip())
-    lan = lan.strip()
 #    script = roman_gs.translate(text, lan)  
     try:
         scripted = roman_gs.translate(text, lan)
