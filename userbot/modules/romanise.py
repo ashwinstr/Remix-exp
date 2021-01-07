@@ -24,7 +24,7 @@ async def _(event):
     roman_gs = goslate.Goslate(writing=goslate.WRITING_ROMAN)
     text = emoji.demojize(text.strip())
     lan = lan.strip()
-    script = roman_gs.translate(text, lan) 
+    #script = roman_gs.translate(text, lan) 
     try:
         scripted = goslate.goslate(text, dest=lan)
         after_gs_text = scripted.text
