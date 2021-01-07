@@ -26,7 +26,7 @@ async def _(event):
     lan = lan.strip()
 #    script = roman_gs.translate(text, lan) 
     try:
-        scripted = roman_gs.translate(text, dest=lan)
+        scripted = roman_gs.translate(text, destination=lan)
         after_gs_text = scripted.text
         mono_gs_text = (("`{}`").format(after_gs_text))
         # TODO: emojify the :
