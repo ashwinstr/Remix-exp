@@ -88,4 +88,4 @@ twitter_scraper
 pyaztro
 jikanpy
 PyDictionary
-Goslate
+goslate
