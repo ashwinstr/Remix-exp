@@ -1,4 +1,4 @@
-import Goslate
+import goslate
 import emoji
 from emoji import get_emoji_regexp
 from userbot.events import register
@@ -23,9 +23,9 @@ async def _(event):
         return
     text = emoji.demojize(text.strip())
     lan = lan.strip()
-    script = Goslate()
+    script = goslate()
     try:
-        scripted = goslate.Goslate(text, dest=lan)
+        scripted = goslate.goslate(text, dest=lan)
         after_gs_text = scripted.text
         mono_gs_text = (("`{}`").format(after_gs_text))
         # TODO: emojify the :
