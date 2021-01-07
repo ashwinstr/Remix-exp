@@ -15,7 +15,7 @@ async def _(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "en"
+        lan = "en"
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
@@ -30,7 +30,7 @@ async def _(event):
     lan = lan.strip()
 #    script = roman_gs.translate(text, lan)  
     try:
-        scripted = roman_gs.translate(text, dest=lan)
+        scripted = roman_gs.translate(text, lan)
         after_gs_text = scripted.text
         mono_gs_text = (("`{}`").format(after_gs_text))
         # TODO: emojify the :
