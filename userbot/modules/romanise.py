@@ -23,7 +23,8 @@ async def _(event):
         return
     text = emoji.demojize(text.strip())
     lan = lan.strip()
-    script = goslate()
+    gs = goslate.Goslate()
+    script = gs.translate() 
     try:
         scripted = goslate.goslate(text, dest=lan)
         after_gs_text = scripted.text
