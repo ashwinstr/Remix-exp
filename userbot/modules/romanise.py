@@ -21,6 +21,9 @@ async def _(event):
     else:
         await event.edit("`.gs LanguageCode` as reply to a message")
         return
+    gs = goslate.Goslate()
+    language_id = gs.detect(input_str)
+    gs.get_languages()[language_id]
     roman_gs = goslate.Goslate(writing=goslate.WRITING_ROMAN)
     text = emoji.demojize(text.strip())
     lan = lan.strip()
