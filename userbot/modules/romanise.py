@@ -24,10 +24,12 @@ async def _(event):
     gs = goslate.Goslate()
     language_id = gs.detect(input_str)
     gs.get_languages()[language_id]
+    
     roman_gs = goslate.Goslate(writing=goslate.WRITING_ROMAN)
     text = emoji.demojize(text.strip())
     lan = lan.strip()
 #    script = roman_gs.translate(text, lan) 
+    roman = Goslate() 
     try:
         scripted = roman_gs.translate(text, destination=lan)
         after_gs_text = scripted.text
