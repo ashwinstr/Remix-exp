@@ -21,7 +21,7 @@ async def _(event):
         return
     roman = goslate.Goslate(text) 
     language_id = roman.detect(text)
-    roman.get_languages()[language_id]
+    src_lan = roman.get_languages()[language_id]
     
     roman_gs = goslate.Goslate(writing=goslate.WRITING_ROMAN)
     text = emoji.demojize(text.strip())
@@ -34,7 +34,7 @@ async def _(event):
         # either here, or before translation
         output_str = """**ROMANISED** from {} to {}
 {}""".format(
-            scripted.src,
+            src_lan,
             lan,
             mono_gs_text
         )
