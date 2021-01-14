@@ -74,7 +74,7 @@ async def stickerchat(quotes):
     if reply.media and reply.media.document.mime_type in ("mp4"):
         await edit_or_reply(quotes, "`this format is not supported now`")
         return
-    event = await .quotes.edit("`Making quote...`")
+    event = await quotes.edit("`Making quote...`")
     user = (
         await event.client.get_entity(reply.forward.sender)
         if reply.fwd_from
