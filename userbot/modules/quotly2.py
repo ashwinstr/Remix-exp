@@ -80,9 +80,7 @@ async def stickerchat(quotes):
         if reply.fwd_from
         else reply.sender
     )
-    res, catmsg = await process(fetchmsg, user, quotes.client, reply, repliedreply)
-    if not res:
-        return
+    
     outfi = os.path.join("./temp", "sticker.png")
     catmsg.save(outfi)
     endfi = convert_tosticker(outfi)
