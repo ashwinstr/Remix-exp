@@ -7,6 +7,7 @@ import os
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
+from userbot import bot, CMD_HELP, QUOTES_API_TOKEN
 
 from userbot.events import register
 
