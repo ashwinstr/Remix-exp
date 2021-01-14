@@ -8,7 +8,6 @@ import os
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import process
 from userbot.events import register
 
 def convert_tosticker(response, filename=None):
