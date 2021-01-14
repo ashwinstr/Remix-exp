@@ -8,9 +8,17 @@ import os
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import convert_tosticker, process
+from . import process
 from userbot.events import register
 
+def convert_tosticker(response, filename=None):
+    filename = filename or os.path.join("./temp/", "temp.webp")
+    image = Image.open(response)
+    if image.mode != "RGB":
+        image.convert("RGB")
+    image.save(filename, "webp")
+    os.remove(response)
+    return filename
 
 @register(outgoing=True, pattern=r"^\.q")
 async def stickerchat(quotes):
