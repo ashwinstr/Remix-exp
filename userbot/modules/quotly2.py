@@ -20,7 +20,7 @@ def convert_tosticker(response, filename=None):
     os.remove(response)
     return filename
 
-async def progress(
+def progress(
     current, total, gdrive, start, prog_type, file_name=None, is_cancelled=False
 ):
     now = time.time()
