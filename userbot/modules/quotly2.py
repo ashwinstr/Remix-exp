@@ -67,9 +67,7 @@ async def stickerchat(quotes):
         return
     reply = await quotes.get_reply_message()
     if not reply:
-        await edit_or_reply(
-            catquotes, "`I cant quote the message. Reply to a message.`"
-        )
+        await quotes.edit("`I cant quote the message. Reply to a message.`")
         return
     fetchmsg = reply.message
     repliedreply = None
